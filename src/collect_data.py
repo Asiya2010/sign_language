@@ -19,13 +19,13 @@ options = vision.HandLandmarkerOptions(
 detector = vision.HandLandmarker.create_from_options(options)
 
 # ---- Config ----
-SIGNS = ['hello', 'thank_you', 'yes', 'no', 'please', 'stop', 'help', 'sorry', 'ok', 'i_love_you', 'what', ]
+SIGNS = ['hello', 'stop', 'yes', 'i_love_you', 'ok', 'same', 'thank_you', 'no' , 'help', 'what', 'more', 'goodbye', 'who']
 SAMPLES_PER_SIGN = 150
 CSV_PATH = 'dataset/landmarks.csv'
 
 os.makedirs('dataset', exist_ok=True)
 
-# Write header once if file doesn't exist
+# writing header once if file doesn't exist
 if not os.path.exists(CSV_PATH):
     header = [f'{axis}{i}' for i in range(21) for axis in ('x', 'y', 'z')] + ['label']
     with open(CSV_PATH, 'w', newline='') as f:
